@@ -1,0 +1,30 @@
+.home{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+.home .SignUp{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(255, 0, 128);
+    color: white;
+    font-weight: 700;
+}
+
+.text{
+    padding-right: 5px;
+    font-size: 18px;
+   font-weight: bold;
+}
+
+.SignUpContainer{
+    width: 28%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
