@@ -1,4 +1,5 @@
 export type CreateJobModel = {
+    userName: string;
     id: string;
     company: string;
     role: string;

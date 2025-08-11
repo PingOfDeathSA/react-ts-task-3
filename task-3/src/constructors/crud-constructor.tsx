@@ -25,18 +25,21 @@ export class CrudConstructor {
     }
   }
 
-    static async  fetchJobs() {
-      try {
-        const response = await fetch("http://localhost:3001/jobs");
-        if (!response.ok) {
-          throw new Error("Failed to fetch jobs");
-        }
-        const data = await response.json();
-        return data;
-      } catch (err: any) {
-        console.error(err);
-      } finally {
-        console.log("Jobs fetched successfully");
-      }
+static async fetchJobs(userName: string) {
+  try {
+    const response = await fetch("http://localhost:3001/jobs");
+    if (!response.ok) {
+      throw new Error("Failed to fetch jobs");
     }
+
+    const data = await response.json();
+    return data.filter((job: any) => job.userName === userName);
+
+  } catch (err: any) {
+    console.error(err);
+  } finally {
+    console.log("Jobs fetched successfully");
+  }
+}
+
 }

@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import filterComponent from "../../components/landing-page-components/filter-component/filter";
 import LandingComponent from "../../components/landing-page-components/landing-com";
 import SerachComponent from "../../components/landing-page-components/search/search";
 import { AuthConstructor } from "../../constructors/authentication-constructor";
@@ -20,7 +19,7 @@ export default function LandingPage () {
 
 
   useEffect(() => {
-    CrudConstructor.fetchJobs()
+    CrudConstructor.fetchJobs(user?.name || "")
       .then(setJobs)
       .catch(console.error);
   }, []);
@@ -44,7 +43,6 @@ export default function LandingPage () {
               }}
               >Welcome {user?.name || "Guest"}   <button onClick={logout}>Logout</button></span>
             <SerachComponent/>
-             {filterComponent()}
            {LandingComponent(jobs)}
            <br />
 

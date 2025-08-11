@@ -1,22 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CrudConstructor } from "../../constructors/crud-constructor";
 import createJobStyle from "./create-job.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function CreateJob() {
     const [company, setCompany] = useState("");
     const [role, setRole] = useState("");
-    const [status, setStatus] = useState("Applied"); // default to 'Applied'
+    const [status, setStatus] = useState("Applied"); 
     const [dateApplied, setDateApplied] = useState("");
     const [duties, setDuties] = useState("");
     const [requirements, setRequirements] = useState("");
+      const userInformation = localStorage.getItem("user");
+      const user = userInformation ? JSON.parse(userInformation) : null;
+      const navigate = useNavigate();
+      useEffect(() => {
+        console.log("useEffect user:", user);
+        if (!user) {
+          navigate("/");
+        }
+      }, [user, navigate]);
 
     function submit(e: React.FormEvent) {
         e.preventDefault();
 
         const dutiesArray = duties.split(",").map((d) => d.trim());
-        const requirementsArray = requirements.split(",").map((r) => r.trim());
-
+        const requirementsArray = requirements.split(",").map((r) => r.trim());      
         CrudConstructor.createJob({
+            userName: user.name,
             id: Date.now().toString(),
             company,
             role,
@@ -24,6 +34,7 @@ export default function CreateJob() {
             dateApplied,
             duties: dutiesArray,
             requirements: requirementsArray,
+
         });
     }
 
