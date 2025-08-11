@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": "9e02",
+      "name": "amin@test.com",
+      "password": "admin@456",
+      "confirmpassword": "admin@456"
+    },
+    {
+      "id": "3b98",
+      "name": "Lane Ochoa",
+      "password": "Pa$$w0rd!",
+      "confirmpassword": "Pa$$w0rd!"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "a610",
+      "company": "Eveniet do tempore et facilis",
+      "role": "Perspiciatis consequatur omnis voluptate consequatur cumque ratione rerum",
+      "status": "Interviewed",
+      "dateApplied": "2021-05-03",
+      "duties": [
+        "Dolorem consectetur in lorem aliquam maiores dolores atque"
+      ],
+      "requirements": [
+        "Consequatur Voluptatem non a eum ducimus ut deserunt doloribus quod rerum eligendi consectetur"
+      ]
+    },
+    {
+      "id": "26bc",
+      "company": "Aut voluptas velit molestiae consectetur necessitatibus sunt voluptatibus commodi aut est",
+      "role": "Ut quia voluptatem in iste aut odio soluta non sint maiores duis aute omnis aliqua Laboris numquam",
+      "status": "Applied",
+      "dateApplied": "2019-01-05",
+      "duties": [
+        "Consectetur sapiente labore velit architecto nulla impedit omnis esse velit aliquam ut aut non eveniet sunt labore ut illum ipsa"
+      ],
+      "requirements": [
+        "Omnis exercitation duis id est quaerat sunt consectetur officia reiciendis"
+      ]
+    }
+  ]
+}

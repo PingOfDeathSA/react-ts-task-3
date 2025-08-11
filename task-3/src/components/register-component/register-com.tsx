@@ -1,7 +1,10 @@
 import { useState } from "react";
 import registerStyle from "./register-com.module.css";
+import { AuthConstructor } from "../../constructors/authentication-constructor";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterComponent () {
+    const navigator = useNavigate();
     const [formData, setFormData] = useState({
         name: "",
         password: "",
@@ -12,13 +15,26 @@ export default function RegisterComponent () {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
       }
-    function checkDetails(e: React.FormEvent<HTMLFormElement>) {
+      async function checkDetails(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         console.log(formData);
-        if(formData.password !== formData.confirmpassword){
-            alert("passwords do not match");
-        } 
-    }
+        const SpecialCharectors = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+        if (formData.password !== formData.confirmpassword) {
+          alert("Passwords do not match");
+        } else if (formData.password.length < 8) {
+          alert("Password must be at least 8 characters long");
+
+        } else if (!SpecialCharectors.test(formData.password)) {
+          alert("Password must contain at least one special character");
+
+        } else {
+          const user = await AuthConstructor.RegisterUser(formData);
+          if (user) {
+            AuthConstructor.UserlocalStore(user);
+            navigator('/landing-page');
+          }
+        }
+      }
     
     return (
         <div >
