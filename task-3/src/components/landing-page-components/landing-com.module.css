@@ -7,7 +7,7 @@
 .table {
   width: 100%;
   border-radius: 5px;
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(255, 255, 255);
     thead{
         font-family: 'Pacifico', cursive !important;
     font-weight: 900 !important;
@@ -15,5 +15,10 @@
     margin: 0;
     padding: 0;
     background-color:   #0F828C;
+    }
+    td{
+      font-weight: thin !important;
+      color: gray;
+          font-family: 'Pacifico', cursive !important;
     }
 }

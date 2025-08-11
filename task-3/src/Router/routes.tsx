@@ -6,6 +6,7 @@ import Login from "../views/login/login";
 import LandingPage from "../views/landing-page/landing-page";
 import ProtectedRoute from "../components/ProtectedRoutes";
 import CreateJob from "../views/create-job/create-job";
+import EditJob from "../views/edit-job/edit-job";
 
 export default function AppRoutes() {
   const userInformation = localStorage.getItem("user");
@@ -21,6 +22,8 @@ export default function AppRoutes() {
         <Route element={<ProtectedRoute />}>
           <Route path="/landing-page" element={<LandingPage />} />
             <Route path="/create-job" element={<CreateJob />} />
+            <Route path="/edit-job/:id" element={<EditJob />} />
+
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
